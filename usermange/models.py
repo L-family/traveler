@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 
-class customer(models.Model):
+class Customer(models.Model):
     """
     客户信息，继承user表，包含地址等基础信息
     """
