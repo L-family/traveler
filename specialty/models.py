@@ -18,7 +18,7 @@ class Specialty(models.Model):
 
 
 class SpecPict(models.Model):
-    specId = models.ForeignKey()
+    specId = models.ForeignKey(Specialty)
     picture = models.ImageField(verbose_name="详细图片")
 
 
@@ -27,8 +27,8 @@ class SpecUserCart(models.Model):
         ('0', '已加入购物车'),
         ('1', '已删除'),
     )
-    specId = models.ForeignKey()
-    userId = models.ForeignKey()
+    specId = models.ForeignKey(Specialty)
+    userId = models.ForeignKey(User)
     status = models.CharField(max_length=1, choices=STA)
     number = models.IntegerField(verbose_name="收藏数目")
 
@@ -38,8 +38,8 @@ class SpecUserStar(models.Model):
         ('0', '已收藏'),
         ('1', '已删除'),
     )
-    specId = models.ForeignKey()
-    userId = models.ForeignKey()
+    specId = models.ForeignKey(Specialty)
+    userId = models.ForeignKey(User)
     status = models.CharField(max_length=1, choices=STA)
 
 
